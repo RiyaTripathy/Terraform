@@ -21,3 +21,11 @@ resource "okta_user_schema" "crn_extension" {
   master = "PROFILE_MASTER"
   depends_on = [okta_user_schema.dob_extension]
 }
+resource "okta_user_schema" "role_extension" {
+  index  = "role"
+  title  = "role"
+  required = true
+  type   = "string"
+  master = "PROFILE_MASTER"
+  depends_on = [okta_user_schema.dob_extension]
+}
