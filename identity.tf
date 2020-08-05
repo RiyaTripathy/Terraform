@@ -7,11 +7,9 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
 }
-resource "okta_user_schema" "crn_extension" {
-  index  = "customer_reference_number"
-  title  = "Customer Reference Number"
-  required = true
+resource "okta_user_schema" "dob_extension" {
+  index  = "date_of_birth"
+  title  = "Date of Birth"
   type   = "string"
   master = "PROFILE_MASTER"
-  depends_on = [okta_user_schema.dob_extension]
 }
