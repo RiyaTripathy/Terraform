@@ -7,7 +7,7 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
 }
-data "okta_users" "example1" {
+data "okta_user" "examp1" {
   search {
     name       = "profile.firstName"
     value      = "riya"
