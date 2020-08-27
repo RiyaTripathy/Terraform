@@ -11,5 +11,6 @@ data "okta_users" "example" {
   search {
     name       = "status"
     value      = "DEPROVISIONED"
+      comparision = "eq"
   }
 }
