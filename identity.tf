@@ -7,10 +7,7 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
 }
-data "okta_user" "examp1" {
-  search {
-    name       = "profile.firstName"
-    value      = "riya"
-      comparison = "sw"
-  }
+resource "okta_group" "example" {
+  name        = "Example"
+  description = "My Example Group"
 }
