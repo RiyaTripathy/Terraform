@@ -7,25 +7,7 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
 }
-resource "okta_user_schema" "dob_extension" {
-  index  = "date_of_birth"
-  title  = "Date of Birth"
-  type   = "string"
-  master = "PROFILE_MASTER"
-}
-resource "okta_user_schema" "crn_extension" {
-  index  = "customer_reference_number"
-  title  = "Customer Reference Number"
-  required = true
-  type   = "string"
-  master = "PROFILE_MASTER"
-  depends_on = [okta_user_schema.dob_extension]
-}
-resource "okta_user_schema" "role_extension" {
-  index  = "role"
-  title  = "role"
-  required = true
-  type   = "string"
-  master = "PROFILE_MASTER"
-  depends_on = [okta_user_schema.dob_extension]
+resource "okta_group" "example" {
+  name        = "Example"
+  description = "My Example Group"
 }
