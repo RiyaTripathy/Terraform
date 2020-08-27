@@ -9,7 +9,7 @@ provider "okta" {
 }
 data "okta_users" "example" {
   search {
-    name       = "profile.company"
+    name       = "status"
     value      = "DEPROVISIONED"
     comparison = "eq"
   }
