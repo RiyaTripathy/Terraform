@@ -9,7 +9,7 @@ provider "okta" {
 }
 data "okta_users" "example1" {
   search {
-    name       = "profile.first_name"
+    name       = "profile.firstName"
     value      = "riya"
       comparison = "sw"
   }
