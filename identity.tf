@@ -7,9 +7,9 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
 }
-resource "fbi_user_schema" "example" {
-  index       = "customPropertyName"
-  title       = "customPropertyName"
+resource "okta_user_schema" "example" {
+  index       = "test"
+  title       = "test"
   type        = "string"
   description = "My custom property name"
   master      = "OKTA"
