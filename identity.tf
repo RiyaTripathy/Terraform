@@ -8,8 +8,8 @@ provider "okta" {
     api_token = var.api_token
 }
 resource "okta_user_schema" "fbi_user" {
-  index       = "test"
-  title       = "test"
+  index       = "attr"
+  title       = "attr"
   type        = "string"
   description = "My custom property name"
   master      = "OKTA"
