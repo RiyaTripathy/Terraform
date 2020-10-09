@@ -7,7 +7,11 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
 }
-resource "okta_group" "example" {
-  name        = "Example"
-  description = "My Example Group"
-}
+resource "okta_fbi_user_schema" "example" {
+  index       = "customPropertyName"
+  title       = "customPropertyName"
+  type        = "string"
+  description = "My custom property name"
+  master      = "OKTA"
+  scope       = "SELF"
+    }
