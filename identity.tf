@@ -32,6 +32,6 @@ data "okta_group" "group_test" {
   name = "FBI Member"
 }
 resource "okta_app_group_assignment" "test" {
-  var app_id   = [data.okta_app.app_test.id]
-  var group_id = [data.okta_group.group_test.id]
+  app_id   = data.okta_app.app_test.id
+  group_id = data.okta_group.group_test.id
 }
