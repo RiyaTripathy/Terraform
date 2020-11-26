@@ -16,15 +16,22 @@ provider "okta" {
   response_types             = ["code","token","id_token" ]
      }
 
-  resource "okta_group" "example" {
+  resource "okta_group" "FBImember_group" {
   name        = "FBI Member"
   description = "FBI Member with role code EXT1"
 }
 
-resource "okta_group" "example1" {
+resource "okta_group" "FBImemberadmin_group" {
   name        = "FBI Member Admin"
   description = "FBI Member Admin with role code EXT2"
 }
-data "okta_group" "example" {
-  name = "FBI Member"
+data "okta_app" "app_test" {
+  name = var.example
+}
+data "okta_group" "group_test" {
+  name = var.FBImember_group
+}
+resource "okta_app_group_assignment" "test" {
+  app_id   = [data.okta_app.app_test.id]
+  group_id = [data.okta_group.group_test.id]
 }
