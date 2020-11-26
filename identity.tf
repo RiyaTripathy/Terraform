@@ -8,6 +8,6 @@ provider "okta" {
     api_token = var.api_token
   }
   resource "okta_group" "example" {
-  name        = "Example"
+  name        = "Example1"
   description = "My Example Group"
 }
