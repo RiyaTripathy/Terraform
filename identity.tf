@@ -7,7 +7,6 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
   }
-  resource "okta_group" "example" {
-  name        = "Example1"
-  description = "My Example Group"
+ data "okta_group" "example" {
+  name = "Example1"
 }
