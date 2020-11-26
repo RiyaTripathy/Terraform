@@ -36,7 +36,7 @@ data "okta_group" "FBImemberadmin_group" {
 }
 resource "okta_app_group_assignment" "test" {
   app_id   = data.okta_app.app_test.id
-  group_id = data.okta_group.FBImember_group.iddata.okta_group.FBImemberadmin_group.id
+  group_id = data.okta_group.FBImember_group.id
 }
 resource "okta_app_group_assignment" "test1" {
   app_id   = data.okta_app.app_test.id
