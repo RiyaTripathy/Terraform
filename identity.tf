@@ -31,7 +31,10 @@ data "okta_app" "app_test" {
 data "okta_group" "FBImember_group" {
   name = "FBI Member"
 }
+data "okta_group" "FBImemberadmin_group" {
+  name = "FBI Member Admin"
+}
 resource "okta_app_group_assignment" "test" {
   app_id   = data.okta_app.app_test.id
-  group_id = data.okta_group.FBImember_group.id
+  group_id = [data.okta_group.FBImember_group.id,data.okta_group.FBImemberadmin_group.id]
 }
