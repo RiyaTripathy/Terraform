@@ -28,13 +28,3 @@ resource "okta_group" "example1" {
 data "okta_app" "appid" {
   label = "TestLoginApp"
 }
-data "okta_group" "FBIgroup1" {
-  name = "FBI Member"
-}
-data "okta_group" "FBIgroup2" {
-  name = "FBI Member Admin"
-}
-resource "okta_app_group_assignment" "example" {
-  app_id   = "data.appid.id"
-  group_id = "data.FBIgroup1.id"
-}
