@@ -25,7 +25,3 @@ resource "okta_group" "FBImemberadmin_group" {
   name        = "FBI Member Admin"
   description = "FBI Member Admin with role code EXT2"
 }
-data "okta_app" "app_test" {
-  label = "TestLoginApp"
-}
-app_id=data.okta_app.app_test.id
