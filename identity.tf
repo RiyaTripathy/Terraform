@@ -36,5 +36,5 @@ data "okta_group" "FBIgroup2" {
 }
 resource "okta_app_group_assignment" "example" {
   app_id   = "${data.appid.id}"
-  group_id = ["${data.FBIgroup1.id}","${data.FBIgroup2.id}"]
+  group_id = "${data.FBIgroup1.id}"
 }
