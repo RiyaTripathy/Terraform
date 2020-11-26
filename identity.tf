@@ -7,12 +7,7 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
   }
- resource "okta_app_oauth" "example" {
-  label                      = "TestLoginApp"
-  type                       = "browser"
-  grant_types                = ["authorization_code","implicit"]
-  redirect_uris              = ["https://benchmark.dev.performanceroundtables.com/login/callback"]
-  post_logout_redirect_uris  = ["https://benchmark.dev.performanceroundtables.com"]
-  response_types             = ["code","token","id_token" ]
-  consent_method             = ["required"]
-     }
+resource "okta_app_group_assignment" "example" {
+  app_id   = "0oa60cffqo3DIj6xV357"
+  group_id = "00g5ah5x2jQkwtBns357"
+}
