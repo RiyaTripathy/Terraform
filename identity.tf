@@ -9,7 +9,7 @@ provider "okta" {
   }
  resource "okta_app_oauth" "example" {
   label                      = "TestLoginApp"
-  type                       = "single page app"
+  type                       = "browser"
   grant_types                = ["authorization_code","implicit"]
   redirect_uris              = ["https://benchmark.dev.performanceroundtables.com/login/callback"]
   post_logout_redirect_uris  = ["https://benchmark.dev.performanceroundtables.com"]
