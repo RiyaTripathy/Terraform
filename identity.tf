@@ -25,6 +25,6 @@ resource "okta_group" "example1" {
   name        = "FBI Member Admin"
   description = "FBI Member Admin with role code EXT2"
 }
-data "okta_app" "appid" {
-  label = "TestLoginApp"
+data "okta_group" "example" {
+  name = "FBI Member"
 }
