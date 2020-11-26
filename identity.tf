@@ -28,10 +28,4 @@ resource "okta_group" "FBImemberadmin_group" {
 data "okta_app" "app_test" {
   label = "TestLoginApp"
 }
-data "okta_group" "group_test" {
-  name = "FBI Member"
-}
-resource "okta_app_group_assignment" "test" {
-  app_id   = data.okta_app.app_test.id
-  group_id = data.okta_group.group_test.id
-}
+app_id=data.okta_app.app_test.id
