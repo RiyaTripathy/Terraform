@@ -14,8 +14,7 @@ provider "okta" {
   redirect_uris              = ["https://benchmark.dev.performanceroundtables.com/login/callback"]
   post_logout_redirect_uris  = ["https://benchmark.dev.performanceroundtables.com"]
   response_types             = ["code","token","id_token" ]
-  consent_method             = ["REQUIRED"],
+  consent_method             = ["REQUIRED"]
   issuer_mode                = ["CUSTOM_URL"]
   initiate_login_uri         = ["https://benchmark.dev.performanceroundtables.com/login"]
-  issuer_mode                = ["CUSTOM_URL"]
      }
