@@ -13,7 +13,8 @@ resource "okta_template_email" "example" {
   translations {
     language = "en"
     subject  = "Riya Password Reset"
-    template = "<div style="background-color:#fafafa;margin:0"> 
+    template = "
+<div style="background-color:#fafafa;margin:0"> 
   <table style="font-family:'proxima nova' , 'century gothic' , 'arial' , 'verdana' , sans-serif;font-size:14px;color:#5e5e5e;width:98%;max-width:600px;float:none;margin:0 auto" border="0" cellpadding="0" cellspacing="0" valign="top" align="left">
     <tbody>
       <tr align="middle">
@@ -61,6 +62,7 @@ resource "okta_template_email" "example" {
      
     </tbody>
   </table> 
-</div>"
+</div>
+"
   }
     }
