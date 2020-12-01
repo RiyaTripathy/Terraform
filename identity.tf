@@ -15,3 +15,4 @@ resource "okta_template_email" "example" {
     subject  = "Riya Password Reset"
     template = "Hi $${user.firstName},<br/><br/>Blah blah $${resetPasswordLink}"
   }
+    }
