@@ -28,9 +28,6 @@ resource "okta_policy_mfa" "mfa_test" {
     okta_push = {
     enroll = "OPTIONAL"
   }
-    okta_email = {
-    enroll = "OPTIONAL"
-  }
     okta_password = {
     enroll = "OPTIONAL"
   }
