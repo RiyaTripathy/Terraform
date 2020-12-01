@@ -12,7 +12,7 @@ resource "okta_template_email" "example" {
 
   translations {
     language = "en"
-    subject  = "Riya Password Reset"
+    subject  = "Riya Password reset"
     template = "Hi $${user.firstName},<br/><br/>Blah blah $${resetPasswordLink}"
   }
     }
