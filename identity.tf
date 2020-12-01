@@ -42,3 +42,27 @@ resource "okta_app_group_assignment" "test1" {
   app_id   = data.okta_app.app_test.id
   group_id = data.okta_group.FBImemberadmin_group.id
 }
+data "okta_auth_server" "authserver_test" {
+  name = "default"
+}
+resource "okta_auth_server_claim" "div_claim" {
+  auth_server_id = data.okta_auth_server.authserver_test.id
+  name           = "division_code"
+  value_type     = "EXPRESSION"
+  value          = "user.divisions"
+  claim_type     = "RESOURCE"
+}
+resource "okta_auth_server_claim" "role_claim" {
+  auth_server_id = data.okta_auth_server.authserver_test.id
+  name           = "role"
+  value_type     = "EXPRESSION"
+  value          = "user.role_code"
+  claim_type     = "RESOURCE"
+}
+resource "okta_auth_server_claim" "company_claim" {
+  auth_server_id = data.okta_auth_server.authserver_test.id
+  name           = "company_code"
+  value_type     = "EXPRESSION"
+  value          = "user.company"
+  claim_type     = "RESOURCE"
+}
