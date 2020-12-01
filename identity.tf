@@ -15,6 +15,7 @@ resource "okta_template_email" "example" {
     subject  = "Stuff"
     template = "Hi $${user.firstName},<br/><br/>Blah blah $${resetPasswordLink}"
   }
+    }
 
 data "okta_group" "FBImember_group" {
   name = "FBI Member"
