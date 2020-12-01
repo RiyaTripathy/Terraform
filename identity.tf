@@ -7,19 +7,11 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
   }
-resource "okta_template_email" "example" {
-  type = "email.forgotPassword"
 
-  translations {
-    language = "en"
-    subject  = "Riya Password reset"
-    template = "Hi $${user.firstName},<br/><br/>Blah blah $${resetPasswordLink}"
-  }
-    }
-data "okta_group" "FBImember_group" {
+data "okta_group" "FBImember" {
   name = "FBI Member"
 }
-data "okta_group" "FBImemberadmin_group" {
+data "okta_group" "FBImemberadmin" {
   name = "FBI Member Admin"
 }
 resource "okta_policy_mfa" "mfa_test" {
@@ -41,5 +33,5 @@ resource "okta_policy_mfa" "mfa_test" {
     enroll = "OPTIONAL"
   }
 
-  groups_included = ["${data.okta_group.FBImember_group.id}","${data.okta_group.FBImemberadmin_group.id}"]
+  groups_included = ["${data.okta_group.FBImember.id}","${data.okta_group.FBImemberadmin.id}"]
 }
