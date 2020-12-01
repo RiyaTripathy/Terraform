@@ -7,13 +7,33 @@ provider "okta" {
     base_url = var.base_url
     api_token = var.api_token
   }
-data "okta_default_policy" "pwd_test" {
-  type = "PASSWORD"
+data "okta_group" "FBImember_group" {
+  name = "FBI Member"
 }
-terraform import okta_policy_password.example 00p234t99mMdyjug8357
+data "okta_group" "FBImemberadmin_group" {
+  name = "FBI Member Admin"
+}
+resource "okta_policy_mfa" "mfa_test" {
+  name        = "MZ FBI MFA"
 
-resource "okta_policy_password" "example" {
-  name                   = "example"
-  password_max_lockout_attempts = 5
-  password_auto_unlock_minutes = 1440
-    }
+  okta_otp = {
+    enroll = "OPTIONAL"
+  }
+    okta_question = {
+    enroll = "OPTIONAL"
+  }
+    okta_sms = {
+    enroll = "OPTIONAL"
+  }
+    okta_push = {
+    enroll = "OPTIONAL"
+  }
+    okta_email = {
+    enroll = "OPTIONAL"
+  }
+    okta_password = {
+    enroll = "OPTIONAL"
+  }
+
+  groups_included = ["${data.okta_group.FBImember_group.id}","${data.okta_group.FBImemberadmin_group.id}"]
+}
