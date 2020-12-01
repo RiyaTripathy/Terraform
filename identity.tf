@@ -70,7 +70,7 @@ data "okta_default_policy" "policy_test" {
   type = "OAUTH_AUTHORIZATION_POLICY"
 }
 resource "okta_trusted_origin" "trusted_test" {
-  name   = "FBI Benchmark URL
+  name   = "FBI Benchmark URL"
   origin = "https://example.com"
   scopes = ["CORS","REDIRECT"]
 }
