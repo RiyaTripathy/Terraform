@@ -10,7 +10,8 @@ provider "okta" {
 data "okta_default_policy" "pwd_test" {
   type = "PASSWORD"
 }
-terraform import okta_policy_password.example data.okta_default_policy.pwd_test.id
+terraform import okta_policy_password.example 00p234t99mMdyjug8357
+
 resource "okta_policy_password" "example" {
   name                   = "example"
   password_max_lockout_attempts = 5
