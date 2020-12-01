@@ -69,17 +69,8 @@ resource "okta_auth_server_claim" "company_claim" {
 data "okta_default_policy" "policy_test" {
   type = "OAUTH_AUTHORIZATION_POLICY"
 }
-resource "okta_auth_server_policy_rule" "rule_test" {
-auth_server_id   = data.okta_auth_server.authserver_test.id
-policy_id        = data.okta_default_policy.policy_test.id
-name             = "Default Policy Rule"
-access_token_lifetime_minutes = 2
-}
-resource "okta_auth_server_policy_rule" "rule_test" {
-auth_server_id   = data.okta_auth_server.authserver_test.id
-policy_id        = data.okta_default_policy.policy_test.id
-name             = "Default Policy Rule"
-grant_type_whitelist  = ["authorization_code","implicit","password",client_credentials]
-priority         =  1
-access_token_lifetime_minutes = 2
+resource "okta_trusted_origin" "trusted_test" {
+  name   = "FBI Benchmark URL
+  origin = "https://example.com"
+  scopes = ["CORS","REDIRECT"]
 }
