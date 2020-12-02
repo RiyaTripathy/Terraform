@@ -8,30 +8,7 @@ provider "okta" {
     api_token = var.api_token
   }
 
-data "okta_group" "FBImember" {
-  name = "FBI Member"
-}
-data "okta_group" "FBImemberadmin" {
-  name = "FBI Member Admin"
-}
-resource "okta_policy_mfa" "mfa_test" {
-  name        = "MZ FBI MFA"
-
-  okta_otp = {
-    enroll = "OPTIONAL"
-  }
-    okta_question = {
-    enroll = "OPTIONAL"
-  }
-    okta_sms = {
-    enroll = "OPTIONAL"
-  }
-    okta_push = {
-    enroll = "OPTIONAL"
-  }
-    okta_password = {
-    enroll = "OPTIONAL"
-  }
-
-  groups_included = ["${data.okta_group.FBImember.id}","${data.okta_group.FBImemberadmin.id}"]
+resource "okta_group" "example" {
+  name        = "Example1"
+  description = "My Example Group"
 }
