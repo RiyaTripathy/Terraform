@@ -8,7 +8,7 @@ provider "okta" {
     api_token = var.api_token
   }
 
-resource "okta_template_email" "example" {
+resource "okta_template_email" "example1" {
   type = "email.forgotPassword"
 
   translations {
