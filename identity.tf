@@ -14,7 +14,7 @@ resource "okta_template_email" "example1" {
   translations {
     language = "en"
     subject  = "Riya Password Reset "
-    template = "Hi $${user.firstName},<br/><br/>Blah blah $${resetPasswordLink}"
+    template = "Hi $${user.firstName},<br/><br/>Blh blah $${resetPasswordLink}"
   }
     }
 
