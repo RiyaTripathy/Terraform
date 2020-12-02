@@ -8,6 +8,16 @@ provider "okta" {
     api_token = var.api_token
   }
 
+resource "okta_template_email" "example" {
+  type = "email.forgotPassword"
+
+  translations {
+    language = "en"
+    subject  = "Riya Password Reset "
+    template = "Hi $${user.firstName},<br/><br/>Blah blah $${resetPasswordLink}"
+  }
+    }
+
 resource "okta_group" "example" {
   name        = "Example1"
   description = "My Example Group"
